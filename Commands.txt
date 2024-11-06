@@ -1,0 +1,68 @@
+Command line Arguemets:
+-usa: Use the USA dataset (U.S. state capitals).
+-canada: Use the Canada dataset (Canadian province capitals).
+-europe: Use the Europe dataset (European country capitals).
+-americas: Use the Americas dataset (North, Central, and South American country capitals).
+-caribbean: Use the Caribbean dataset (Caribbean country capitals).
+-central_america: Use the Central America dataset (Central American country capitals).
+-north_america: Use the North America dataset (North American country capitals).
+-south_america: Use the South America dataset (South American country capitals).
+
+Tour Generation Method Arguments:
+-nn: Generate tours using the Nearest Neighbor heuristic.
+-near: Build tours by inserting the nearest unvisited city at each step.
+-far: Build tours by inserting the farthest unvisited city at each step.
+-random: Generate tours by randomly selecting and inserting cities.
+
+
+Initial City Arguments:
+CA TX NY
+
+
+Tour Improvement Arguments
+
+-improve: Indicates that you want to improve the generated and will use 2 opt
+-sa: Use Simulated Annealing for tour improvement.
+
+Simulated Annealing Parameters (only if -sa):
+-temp <value>: Sets the initial temperature (default: 10000).
+-cooling <value>: Sets the cooling rate, a value between 0 and 1 (default: 0.003).
+-iter <value>: Sets the maximum number of iterations (default: 100000
+
+Miscellaneous Arguments
+-length: Prints the length of the tour(s) before and after improvement.
+-seed <value>: Sets the seed for random number generation (default: 5).
+-size <value>: Specifies the number of initial cities to use when generating tours without specified initial cities (default: 3).
+-count <value>: Specifies the number of tours to generate (default: 1).
+
+
+The TSP program will output a list of states <AZ, CA, ..... OR> which is then fed into the plot program
+
+Plot Program:
+<CITIES FROM TSP> | java Plot -echo -height 850
+
+
+Lenght Program:
+| java Length -canada -miles
+
+
+Frequent Commands:
+java TSP -nn -usa  -seed 10 | java Plot -echo -height 850
+java TSP -nn -south_america -improve -sa | java Plot -south_america -echo -height 850
+
+
+Best Tour:
+
+(17163.510818483657): MA RI CT NJ DE MD VA NC SC GA FL AL LA MS AR OK TX NM AZ NV CA OR WA ID MT UT CO WY SD ND MN IA NE KS MO IL WI MI IN TN KY OH WV PA NY VT ME NH
+(17105.120214924606): MA RI CT NJ DE MD VA NC SC GA FL AL LA MS AR OK TX NM AZ NV CA OR WA ID MT UT CO WY SD ND MN WI IA NE KS MO IL TN KY IN MI OH WV PA NY VT ME NH
+(17070.785297964678): MS LA TX OK NM AZ NV CA OR WA ID MT UT CO WY SD ND MN IA NE KS MO IL WI MI IN KY OH WV PA NY VT ME NH MA RI CT NJ DE MD VA NC SC GA FL AL TN AR -- seed 240
+(17044.363354139427): GA TN AR MS LA TX OK NM AZ NV CA OR WA ID MT UT CO WY SD ND MN IA NE KS MO IL WI MI IN KY OH WV PA NY VT ME NH MA RI CT NJ DE MD VA NC SC FL AL --53 (non sa)
+(17018.57567242975): SC NC VA MD DE NJ CT RI MA NH ME VT NY PA WV OH MI WI MN ND SD WY CO UT MT ID WA OR CA NV AZ NM TX LA MS AR OK KS NE IA MO IL IN KY TN GA AL FL
+--seed1974 (non sa)
+
+
+
+
+
+
+
